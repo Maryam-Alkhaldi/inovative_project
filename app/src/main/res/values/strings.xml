@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">UniRecipes</string>
+    <string-array name="recipes">
+        <item>recipe1</item>
+        <item>recipe2</item>
+        <item>recipe3</item>
+    </string-array>
+
+    <string-array name="price">
+        <item>$1</item>
+        <item>$2</item>
+        <item>$3</item>
+    </string-array>
+
+    <string-array name="time">
+        <item>1 minute</item>
+        <item>2 minute</item>
+        <item>3 minute</item>
+    </string-array>
+</resources>
