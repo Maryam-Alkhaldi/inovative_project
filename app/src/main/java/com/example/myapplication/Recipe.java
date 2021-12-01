@@ -1,6 +1,7 @@
 package com.example.myapplication;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * A class representing a culinary recipe. The class consists of the members:
@@ -14,8 +15,9 @@ import java.util.ArrayList;
 
 public final class Recipe
 {
-    private final String name;
-    public final String description;
+    private String name;
+    private String description;
+    private String catagory;
     private Ingredient ingredients[];
     private double price;
 
@@ -26,13 +28,13 @@ public final class Recipe
     // ArrayList of Strings representing the steps to prepare the recipe
     private ArrayList<String> instructions;
 
-    public Recipe(String name, String description)
+    public Recipe(String name, String description, String cat)
     {
         instructions = new ArrayList<>();
         this.name = name;
         this.description = description;
         this.ingredients = new Ingredient[20];
-
+        this.catagory = cat;
     }
 
     /**
@@ -45,9 +47,9 @@ public final class Recipe
      *
      * Constructs a recipe object.
      * */
-    public Recipe(String name, String description, Ingredient ingredientList[])
+    public Recipe(String name, String description, String catagory, Ingredient ingredientList[])
     {
-        this(name, description);
+        this(name, description, catagory);
 
         // Sanity check for list of ingredients. If an
         //Array of ingredients have been passed the reference for ingredients
@@ -74,6 +76,8 @@ public final class Recipe
      */
     public String getDescription() { return this.description; }
 
+    public String getCatagory() { return catagory; }
+
     /**
      * Accessor method for the total cost of the recipe.
      * @return A double value representing the total cost of the recipe.
@@ -81,6 +85,8 @@ public final class Recipe
     public double getPrice() { return this.price; }
 
     public ArrayList<String> getInstructions() { return this.instructions; }
+
+    public void setCatagory(String cat) { this.catagory = cat; }
 
     /**
      * Calculates the cost of the recipe by totaling the prices of individual
@@ -122,7 +128,7 @@ public final class Recipe
 
     /**
      * Loads a set of hardcoded Recipe objects from an XML document.
-     * @return
+     * @return ArrayList of recipe objects.
      */
     public static ArrayList<Recipe> loadRecipes()
     {

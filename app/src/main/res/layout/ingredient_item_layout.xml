@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageButton
+        android:id="@+id/addToCart"
+        android:layout_width="64dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/cart_image"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <RadioButton
+        android:id="@+id/ingredient_button"
+        android:layout_width="318dp"
+        android:layout_height="51dp"
+        android:text="Ingredient"
+        android:textSize="15sp"
+        android:fontFamily="@font/amita"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/addToCart"
+        app:layout_constraintEnd_toStartOf="@+id/addToCart"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+</androidx.constraintlayout.widget.ConstraintLayout>

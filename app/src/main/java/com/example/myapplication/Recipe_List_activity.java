@@ -14,6 +14,7 @@ public class Recipe_List_activity extends AppCompatActivity {
     String[] recipes;
     String[] times;
     String[] prices;
+    String[] categories = {"Trending", "Breakfast", "Lunch", "Dinner", "Dessert", "Snack"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,11 +33,9 @@ public class Recipe_List_activity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i , long l){
                 Intent showRecipeActivty = new Intent(getApplicationContext(), RecipeActivity.class);
-                showRecipeActivty.putExtra("ingredient",i);
+                showRecipeActivty.putExtra("com.example.myapplication.ITEM_INDEX",i);
                 startActivity(showRecipeActivty);
             }
         });
-
-
     }
 }

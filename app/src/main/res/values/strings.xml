@@ -1,20 +1,97 @@
 <resources>
     <string name="app_name">UniRecipes</string>
     <string-array name="recipes">
-        <item>recipe1</item>
-        <item>recipe2</item>
-        <item>recipe3</item>
+        <item>chocolate cake</item>
+        <item>penne alfredo</item>
+        <item>french toast</item>
     </string-array>
 
     <string-array name="price">
-        <item>$1</item>
-        <item>$2</item>
-        <item>$3</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
     </string-array>
 
     <string-array name="time">
-        <item>1 minute</item>
-        <item>2 minute</item>
-        <item>3 minute</item>
+        <item>50 minute</item>
+        <item>40 minute</item>
+        <item>20 minute</item>
+    </string-array>
+
+    <string-array name="cc_ingredients">
+        <item>1 cup flour</item>
+        <item>1/2 cup sugar</item>
+        <item>1/2 cup cocoa powder</item>
+        <item>20g chocolate chip</item>
+        <item>1tbsp baking powder</item>
+        <item>1 egg</item>
+        <item>1/4 cup vegtable oil</item>
+    </string-array>
+
+    <string-array name="cc_Instructions">
+        <item>preheat the oven to 180 degrees</item>
+        <item>in a small bowl, mix together the flour, sugar, cocoa powder, and baking powder</item>
+        <item>microwave the chocolate chip for 20 seconds or until melted</item>
+        <item>in a large bowl, mix together the egg, vegetable oil, the melted chocolate</item>
+        <item>add the dry ingredients to the wet ingredients</item>
+        <item>grease a round cake pan and pour the mixture to it</item>
+        <item>put the pan in the oven and let it bake for about 20 minutes</item>
+    </string-array>
+
+    <string-array name="cc_notes">
+        <item>to make sure that the chocolate does not burn microwave it 5 seconds at a time</item>
+        <item>check if the cake is cooked by using a stick</item>
+        <item>reheat 1/2 cup of nutella and pour it on the cake for extra chocolaty flavor</item>
+        <item>dust the cake with powder sugar for decoration</item>
+    </string-array>
+
+    <string-array name="pa_ingredients">
+        <item>1 cup uncooked penne pasta</item>
+        <item>1 cup water</item>
+        <item>1tbsp vegetable oil</item>
+        <item>1/2 tbsp salt</item>
+        <item>1/2 cup cooking cream</item>
+        <item>1/4 tsp garlic powder</item>
+        <item>1/4 cup Parmesan cheese</item>
+        <item>1/2 tsp italian herbs</item>
+        <item>pinch of black pepper</item>
+        <item>pinch of salt</item>
+    </string-array>
+
+    <string-array name="pa_instructions">
+        <item>put the uncooked pasta in a pot with the oil and (1/2 tbsp) salt and let it boil for 15 minutes</item>
+        <item>in a medium pan, add the cream , garlic powder, pinch of salt and pepper, and the italian herbs and let it cook in medium heat</item>
+        <item>once the pasta is cooked, drain the water and add the cooked pasta to the sauce</item>
+        <item>put the parmesan to the sauce and mix</item>
+        <item>turn off the heat and put the pasta in a serving dish</item>
+    </string-array>
+
+    <string-array name="pa_notes">
+        <item>add mozzarella cheese for more cheesy texture and taste</item>
+        <item>top it with parsley</item>
+    </string-array>
+
+    <string-array name="ft_ingredients">
+        <item>1 egg</item>
+        <item>1/4 cup milk</item>
+        <item>pinch of salt</item>
+        <item>pinch of pepper</item>
+        <item>2 slices of thick toast</item>
+        <item>maple syrup</item>
+    </string-array>
+
+    <string-array name="ft_instructions">
+        <item>in a bowl that is big enough to fit the toast mix the egg, milk, salt, and pepper</item>
+        <item>dip the toast in the mixture</item>
+        <item>grease a pan with butter or any type of oil, and put the toast</item>
+        <item>once the toast is golden and crispy take it off the pan</item>
+        <item>repeat for the other toast</item>
+        <item>drizzle the toast with maple syrup</item>
+    </string-array>
+
+    <string-array name="ft_notes">
+        <item>sprinkle with powder sugar for more sweetness</item>
+        <item>if there is still mixture left you can cook one more toast</item>
+        <item>you can eat it with cream cheese or nutella as well</item>
     </string-array>
 </resources>
