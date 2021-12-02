@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Intent intent = new Intent(getApplicationContext(),Recipe_List_activity.class);
-                intent.putExtra("name",categories[i]);
-                intent.putExtra("image",categoryImages[i]);
+                String categoryName = categories[i];
+                intent.putExtra("category name",categoryName);
                 startActivity(intent);
 
             }

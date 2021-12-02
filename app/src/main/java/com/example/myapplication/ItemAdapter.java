@@ -34,6 +34,7 @@ public class ItemAdapter extends BaseAdapter {
         return position;
     }
 
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View view = mInflater.inflate(R.layout.recipe_list_layout, null);

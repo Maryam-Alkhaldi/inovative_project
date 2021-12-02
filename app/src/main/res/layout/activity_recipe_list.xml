@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Recipe_List_activity">
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/categoryName11"
         android:layout_width="338dp"
         android:layout_height="59dp"
         android:layout_marginStart="37dp"
@@ -39,17 +39,17 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/categoryName11"
         app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/imageButton6"
         android:layout_width="54dp"
         android:layout_height="68dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/categoryName11"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintStart_toEndOf="@+id/categoryName11"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.562"
         app:srcCompat="@drawable/account_icon"
@@ -61,7 +61,7 @@
         android:layout_height="48dp"
         android:layout_marginStart="251dp"
         android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintBottom_toTopOf="@+id/categoryName11"
         app:layout_constraintEnd_toStartOf="@+id/imageButton6"
         app:layout_constraintStart_toEndOf="@+id/floatingActionButton5"
         app:layout_constraintTop_toTopOf="parent"

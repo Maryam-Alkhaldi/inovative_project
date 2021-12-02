@@ -6,6 +6,84 @@
         <item>french toast</item>
     </string-array>
 
+    <string-array name="t_recipes">
+        <item>chocolate cake</item>
+        <item>penne alfredo</item>
+        <item>french toast</item>
+    </string-array>
+
+    <string-array name="b_recipes">
+        <item>french toast</item>
+    </string-array>
+
+    <string-array name="l_recipes">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="dn_recipes">
+        <item>penne alfredo</item>
+    </string-array>
+
+    <string-array name="ds_recipes">
+        <item>chocolate cake</item>
+    </string-array>
+
+    <string-array name="s_recipes">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="t_prices">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="b_prices">
+        <item>3</item>
+    </string-array>
+
+    <string-array name="l_prices">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="dn_prices">
+        <item>2</item>
+    </string-array>
+
+    <string-array name="ds_prices">
+        <item>1</item>
+    </string-array>
+
+    <string-array name="s_prices">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="t_time">
+        <item>50 minute</item>
+        <item>40 minute</item>
+        <item>20 minute</item>
+    </string-array>
+
+    <string-array name="b_time">
+        <item>20 min</item>
+    </string-array>
+
+    <string-array name="l_time">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="dn_time">
+        <item>40 minute</item>
+    </string-array>
+
+    <string-array name="ds_time">
+        <item>50 minute</item>
+    </string-array>
+
+    <string-array name="s_time">
+        <item>coming soon</item>
+    </string-array>
+
     <string-array name="price">
         <item>1</item>
         <item>2</item>
@@ -94,4 +172,17 @@
         <item>if there is still mixture left you can cook one more toast</item>
         <item>you can eat it with cream cheese or nutella as well</item>
     </string-array>
+
+    <string-array name="cs_ingredients">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="cs_instructions">
+        <item>coming soon</item>
+    </string-array>
+
+    <string-array name="cs_notes">
+        <item>coming soon</item>
+    </string-array>
+
 </resources>

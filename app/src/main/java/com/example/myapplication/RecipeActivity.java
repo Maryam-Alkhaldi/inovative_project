@@ -2,60 +2,94 @@ package com.example.myapplication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
+
 import android.content.Intent;
-import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import java.util.List;
 
 public class RecipeActivity extends AppCompatActivity {
-    ListView ingredintsListView;
+    ListView ingredientsListView;
     ListView instructionListView;
     ListView notesView;
-    String[] ingredients;
-    String[] instructions;
-    String[] notes;
-
+    String[] recipes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_recipe);
+        Intent intent = getIntent();
+        recipes = intent.getStringArrayExtra("recipes");
+        int index = -1;
+        String rn = intent.getStringExtra("recipe name");
+        for(int i=0; i< recipes.length;i++){
+            if(rn.equals("coming soon")){
+                index=4;
+            }
+            else if(rn.equals(recipes[i])){
+                index=i;
+            }
+        }
 
-        Resources res = getResources();
-        ingredintsListView = (ListView) findViewById(R.id.ingredient_list);
-        ingredients = res.getStringArray(R.array.cc_ingredients);
-        IngredientAdapter ingredientAdapter = new IngredientAdapter(this, ingredients);
-        ingredintsListView.setAdapter(ingredientAdapter);
+        assert index>-1;
+        TextView recipeName = (TextView) findViewById(R.id.recipeName1);
+        recipeName.setText(rn);
+
+        ingredientsListView = (ListView) findViewById(R.id.ingredient_list);
+        IngredientAdapter ingredientAdapter = new IngredientAdapter(index);
+        ingredientsListView.setAdapter(ingredientAdapter);
 
         instructionListView = (ListView) findViewById(R.id.instruction_list);
-        instructions = res.getStringArray(R.array.cc_Instructions);
-        InstructionAdapter instructionAdapter = new InstructionAdapter(this, instructions);
+        InstructionAdapter instructionAdapter = new InstructionAdapter(index);
         instructionListView.setAdapter(instructionAdapter);
 
         notesView = (ListView) findViewById(R.id.notes_list);
-        notes = res.getStringArray(R.array.cc_notes);
-        NotesAdapter notesAdapter = new NotesAdapter(this, notes);
+        NotesAdapter notesAdapter = new NotesAdapter(index);
         notesView.setAdapter(notesAdapter);
+
     }
 
+    private String[] getIngredients(int index){
+        switch(index){
+            case 0: return getResources().getStringArray(R.array.cc_ingredients);
+            case 1: return getResources().getStringArray(R.array.pa_ingredients);
+            case 2: return getResources().getStringArray(R.array.ft_ingredients);
+            case 4: return getResources().getStringArray(R.array.cs_ingredients);
+        }
+        return null;
+    }
+
+    private String[] getInstructions(int index){
+        switch(index){
+            case 0: return getResources().getStringArray(R.array.cc_Instructions);
+            case 1: return getResources().getStringArray(R.array.pa_instructions);
+            case 2: return getResources().getStringArray(R.array.ft_instructions);
+            case 4: return getResources().getStringArray(R.array.cs_instructions);
+        }
+        return null;
+    }
+
+    private String[] getNotes(int index){
+        switch(index){
+            case 0: return getResources().getStringArray(R.array.cc_notes);
+            case 1: return getResources().getStringArray(R.array.pa_notes);
+            case 2: return getResources().getStringArray(R.array.ft_notes);
+            case 4: return getResources().getStringArray(R.array.cs_notes);
+        }
+        return null;
+    }
+
+
     private class IngredientAdapter extends BaseAdapter {
-        LayoutInflater mInflater;
         String[] ingredients;
 
-        public IngredientAdapter(Context c, String[] i){
-            ingredients = i;
-            mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        public IngredientAdapter(int index){
+            ingredients = getIngredients(index);
         }
-
         @Override
         public int getCount() {
             return ingredients.length;
@@ -73,23 +107,19 @@ public class RecipeActivity extends AppCompatActivity {
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = mInflater.inflate(R.layout.ingredient_item_layout, null);
+            View view = getLayoutInflater().inflate(R.layout.ingredient_item_layout, null);
             RadioButton ingredientview = (RadioButton) view.findViewById(R.id.ingredient_button);
-            String name = ingredients[position];
-            ingredientview.setText(name);
+            ingredientview.setText(ingredients[position]);
             return view;
         }
     }
 
     private class InstructionAdapter extends BaseAdapter {
-        LayoutInflater mInflater;
         String[] instructions;
 
-        public InstructionAdapter(Context c, String[] i){
-            instructions = i;
-            mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        public InstructionAdapter(int index){
+            instructions = getInstructions(index);
         }
-
         @Override
         public int getCount() {
             return instructions.length;
@@ -97,32 +127,28 @@ public class RecipeActivity extends AppCompatActivity {
 
         @Override
         public Object getItem(int position) {
-            return instructions[position];
+            return null;
         }
 
         @Override
         public long getItemId(int position) {
-            return position;
+            return 0;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = mInflater.inflate(R.layout.instruction_layout, null);
+            View view = getLayoutInflater().inflate(R.layout.instruction_layout, null);
             RadioButton instructionview = (RadioButton) view.findViewById(R.id.instruction_button);
-            String name = instructions[position];
-            instructionview.setText(name);
+            instructionview.setText(instructions[position]);
             return view;
         }
     }
     private class NotesAdapter extends BaseAdapter {
-        LayoutInflater mInflater;
         String[] notes;
 
-        public NotesAdapter(Context c, String[] i){
-            notes = i;
-            mInflater = (LayoutInflater) c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        public NotesAdapter(int index){
+            notes = getNotes(index);
         }
-
         @Override
         public int getCount() {
             return notes.length;
@@ -130,21 +156,21 @@ public class RecipeActivity extends AppCompatActivity {
 
         @Override
         public Object getItem(int position) {
-            return notes[position];
+            return null;
         }
 
         @Override
         public long getItemId(int position) {
-            return position;
+            return 0;
         }
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            View view = mInflater.inflate(R.layout.note_layout, null);
+            View view = getLayoutInflater().inflate(R.layout.note_layout, null);
             TextView noteView = (TextView) view.findViewById(R.id.note_text);
-            String note = notes[position];
-            noteView.setText(note);
+            noteView.setText(notes[position]);
             return view;
         }
     }
+
 }
