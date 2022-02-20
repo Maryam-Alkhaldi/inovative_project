@@ -12,6 +12,8 @@ import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 
 public class RecipeActivity extends AppCompatActivity {
     ListView ingredientsListView;
@@ -50,6 +52,14 @@ public class RecipeActivity extends AppCompatActivity {
         notesView = (ListView) findViewById(R.id.notes_list);
         NotesAdapter notesAdapter = new NotesAdapter(index);
         notesView.setAdapter(notesAdapter);
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton3);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(RecipeActivity.this, UploadActivity.class));
+            }
+        });
 
     }
 

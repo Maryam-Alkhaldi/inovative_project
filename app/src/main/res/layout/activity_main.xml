@@ -79,13 +79,13 @@
         android:layout_marginTop="5dp"
         app:layout_constraintBottom_toTopOf="@+id/categoryName11"
         app:layout_constraintEnd_toStartOf="@+id/imageButton6"
-        app:layout_constraintStart_toEndOf="@+id/floatingActionButton5"
+        app:layout_constraintStart_toEndOf="@+id/floatingActionButton"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/cart_icon"
         tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton5"
+        android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"

@@ -10,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class Recipe_List_activity extends AppCompatActivity {
     ListView recipeListView;
     String[] recipes;
@@ -52,6 +54,14 @@ public class Recipe_List_activity extends AppCompatActivity {
                 startActivity(showRecipeActivty);
             }
 
+        });
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton2);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Recipe_List_activity.this, UploadActivity.class));
+            }
         });
 
     }

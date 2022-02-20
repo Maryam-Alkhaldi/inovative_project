@@ -12,6 +12,9 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
 public class MainActivity extends AppCompatActivity {
     GridView gridView;
     String[] categories = {"Trending", "Breakfast", "Lunch", "Dinner", "Dessert", "Snack"};
@@ -34,6 +37,13 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("category name",categoryName);
                 startActivity(intent);
 
+            }
+        });
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(MainActivity.this, UploadActivity.class));
             }
         });
     }
