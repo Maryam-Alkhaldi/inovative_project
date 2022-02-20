@@ -4,6 +4,7 @@
         <item>chocolate cake</item>
         <item>penne alfredo</item>
         <item>french toast</item>
+        <item>Beef and Veggie Stew</item>
     </string-array>
 
     <string-array name="t_recipes">
@@ -17,7 +18,7 @@
     </string-array>
 
     <string-array name="l_recipes">
-        <item>coming soon</item>
+        <item>Beef and Veggie Stew</item>
     </string-array>
 
     <string-array name="dn_recipes">
@@ -43,7 +44,7 @@
     </string-array>
 
     <string-array name="l_prices">
-        <item>coming soon</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="dn_prices">
@@ -62,6 +63,7 @@
         <item>50 minute</item>
         <item>40 minute</item>
         <item>20 minute</item>
+        <item>80 minute</item>
     </string-array>
 
     <string-array name="b_time">
@@ -69,7 +71,7 @@
     </string-array>
 
     <string-array name="l_time">
-        <item>coming soon</item>
+        <item>80 min</item>
     </string-array>
 
     <string-array name="dn_time">
@@ -88,6 +90,7 @@
         <item>1</item>
         <item>2</item>
         <item>3</item>
+        <item>4</item>
     </string-array>
 
     <string-array name="time">
@@ -171,6 +174,35 @@
         <item>sprinkle with powder sugar for more sweetness</item>
         <item>if there is still mixture left you can cook one more toast</item>
         <item>you can eat it with cream cheese or nutella as well</item>
+    </string-array>
+
+    <string-array name="bs_ingredients">
+        <item>6-8 Baby Onions</item>
+        <item>2 Carrots</item>
+        <item>500g Lean Beef</item>
+        <item>15ml Cooking Oil</item>
+        <item>15ml Flour</item>
+        <item>600ml Water</item>
+        <item>1 Bay Leaf</item>
+        <item>1 Beef Stock Cube</item>
+        <item>Pinch of Thyme</item>
+    </string-array>
+
+    <string-array name="bs_instructions">
+        <item>Prepare the Vegetables, peel and chop onion and carrots. Slice the mushrooms in half.</item>
+        <item>Prepare a Stock by boiling the water on the hob and adding the stock cube.</item>
+        <item>With a clean knife on a clean board, dice the beef.</item>
+        <item>Brown the beef in the oil in a saucepan.</item>
+        <item>Stir in the flour so the beef is covered.</item>
+        <item>Add the vegetables to the saucepan.</item>
+        <item>Pour in the stock and add the bay leaf and thyme.</item>
+        <item>Bring to the boil and reduce to simmer. Cover with lid and cook for 1 hour.</item>
+    </string-array>
+
+    <string-array name="bs_notes">
+        <item>Can be served with boiled or Mashed potatoes</item>
+        <item>Add some more vegetables such as parsnips, peas or beans to the stew</item>
+        <item>Have some Peas or sweetcorn on the side.</item>
     </string-array>
 
     <string-array name="cs_ingredients">
