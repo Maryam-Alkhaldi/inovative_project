@@ -78,3 +78,65 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 }
+    /*
+     * NOT FULLY FUNCTIONAL
+     * Reads in data from an XML file containing all data associated with
+     * the stock recipes contained in the app.
+     *
+    public void loadRecipes()
+    {
+        AssetManager assets = getAssets();
+
+        InputStream iStream;
+        XmlPullParser xmlParser;
+
+        try
+        {
+            iStream = assets.open("recipes.xml");
+            try
+            {
+                xmlParser = Xml.newPullParser();
+                xmlParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
+                xmlParser.setInput(iStream, null);
+
+                int recipeNum = 0;
+                int event = 0;
+
+                while (event != XmlPullParser.END_DOCUMENT)
+                {
+                    String name = xmlParser.getName();
+                    System.out.println(">>>" + name); // First returned value is null.
+
+//                    if(name.equals("Recipe")) // Throws an Exception???
+//                    {
+//                        recipeNum++;
+//                    }
+
+                    System.out.println(">>>" + recipeNum);
+                    event = xmlParser.next();
+                }
+
+
+            }
+            catch(XmlPullParserException exception)
+            {
+                System.err.println(">>>Error XmlPullParser");
+            }
+
+
+        }
+        catch(FileNotFoundException e)
+        {
+            System.err.println(">>>FileNotFoundException Has Occured.");
+        }
+        catch(IOException e)
+        {
+            System.err.println(">>>IOException Has Occured");
+        }
+        catch (Exception e)
+        {
+            System.err.println(">>>" + e.getCause());
+            System.err.println(">>>ERROR Reading File.");
+        }
+    }
+}*/

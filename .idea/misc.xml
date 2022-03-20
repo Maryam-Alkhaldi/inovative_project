@@ -3,6 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Personal/University/Android_Studio_Projects/IPDMain/Android Studio/app/src/main/res/layout/activity_recipe.xml" value="0.33" />
+        <entry key="..\:/Personal/University/Android_Studio_Projects/IPDMain/Android Studio/app/src/main/res/layout/activity_recipe_list.xml" value="0.16983695652173914" />
+        <entry key="..\:/Personal/University/Android_Studio_Projects/IPDMain/Android Studio/app/src/main/res/layout/comment_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Personal/University/Android_Studio_Projects/IPDMain/Android Studio/app/src/main/res/layout/instruction_layout.xml" value="0.36666666666666664" />
+        <entry key="..\:/Personal/University/Android_Studio_Projects/IPDMain/Android Studio/app/src/main/res/layout/note_layout.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/marya/AndroidStudioProjects/apptest3/app/src/main/res/font/font.xml" value="0.20989583333333334" />
         <entry key="..\:/Users/marya/AndroidStudioProjects/apptest3/app/src/main/res/font/lobster.xml" value="0.1" />
         <entry key="..\:/Users/marya/AndroidStudioProjects/apptest3/app/src/main/res/layout/activity_create_account.xml" value="0.19607843137254902" />

@@ -19,6 +19,7 @@ public class RecipeActivity extends AppCompatActivity {
     ListView ingredientsListView;
     ListView instructionListView;
     ListView notesView;
+    ListView commentsView;
     String[] recipes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +54,10 @@ public class RecipeActivity extends AppCompatActivity {
         NotesAdapter notesAdapter = new NotesAdapter(index);
         notesView.setAdapter(notesAdapter);
 
+        commentsView = (ListView) findViewById(R.id.comments_list);
+        CommentsAdapter commentsAdapter = new CommentsAdapter(index);
+        commentsView.setAdapter(commentsAdapter);
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton3);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +73,7 @@ public class RecipeActivity extends AppCompatActivity {
             case 0: return getResources().getStringArray(R.array.cc_ingredients);
             case 1: return getResources().getStringArray(R.array.pa_ingredients);
             case 2: return getResources().getStringArray(R.array.ft_ingredients);
+            case 3: return getResources().getStringArray(R.array.bs_ingredients);
             case 4: return getResources().getStringArray(R.array.cs_ingredients);
         }
         return null;
@@ -78,6 +84,7 @@ public class RecipeActivity extends AppCompatActivity {
             case 0: return getResources().getStringArray(R.array.cc_Instructions);
             case 1: return getResources().getStringArray(R.array.pa_instructions);
             case 2: return getResources().getStringArray(R.array.ft_instructions);
+            case 3: return getResources().getStringArray(R.array.bs_instructions);
             case 4: return getResources().getStringArray(R.array.cs_instructions);
         }
         return null;
@@ -88,6 +95,7 @@ public class RecipeActivity extends AppCompatActivity {
             case 0: return getResources().getStringArray(R.array.cc_notes);
             case 1: return getResources().getStringArray(R.array.pa_notes);
             case 2: return getResources().getStringArray(R.array.ft_notes);
+            case 3: return getResources().getStringArray(R.array.bs_notes);
             case 4: return getResources().getStringArray(R.array.cs_notes);
         }
         return null;
@@ -148,8 +156,8 @@ public class RecipeActivity extends AppCompatActivity {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             View view = getLayoutInflater().inflate(R.layout.instruction_layout, null);
-            RadioButton instructionview = (RadioButton) view.findViewById(R.id.instruction_button);
-            instructionview.setText(instructions[position]);
+            RadioButton instructionView = (RadioButton) view.findViewById(R.id.instruction_button);
+            instructionView.setText(instructions[position]);
             return view;
         }
     }
@@ -179,6 +187,36 @@ public class RecipeActivity extends AppCompatActivity {
             View view = getLayoutInflater().inflate(R.layout.note_layout, null);
             TextView noteView = (TextView) view.findViewById(R.id.note_text);
             noteView.setText(notes[position]);
+            return view;
+        }
+    }
+    private class CommentsAdapter extends BaseAdapter {
+        String[] comments;
+
+        public CommentsAdapter(int index){
+            comments = getNotes(index);
+        }
+        @Override
+        public int getCount() {
+            return comments.length;
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return null;
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            View view = getLayoutInflater().inflate(R.layout.comment_layout, null);
+            TextView commentView = (TextView) view.findViewById(R.id.comment_text);
+            commentView.setText(comments[position]);
             return view;
         }
     }
