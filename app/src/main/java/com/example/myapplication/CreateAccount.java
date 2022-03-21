@@ -91,9 +91,9 @@ public class CreateAccount extends AppCompatActivity {
             }
         }
         // Strength of password
-        if (hasDigit && hasLower && hasUpper && specialChar && (n >= 8)) {
+        if (hasDigit && hasLower && hasUpper && specialChar && (n >= 8)) { //8 or more
             valid = true;
-        } else if ((hasLower || hasUpper || specialChar) && (n >= 6)) {
+        } else if ((hasLower || hasUpper || specialChar) && (n >= 6)) { //6 or more
             valid = true;
         } else {
             valid = false;

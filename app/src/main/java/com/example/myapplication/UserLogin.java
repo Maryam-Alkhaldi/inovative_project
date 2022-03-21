@@ -58,7 +58,7 @@ public class UserLogin extends AppCompatActivity {
     private boolean validateLogin(String mail, String pass){
         boolean valid;
         //if statment checking if email and pass are in the database
-        valid = false;
+        valid = true;
         return valid;
     }
 }

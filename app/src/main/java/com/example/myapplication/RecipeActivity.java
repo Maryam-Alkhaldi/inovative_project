@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.RadioButton;
 import android.widget.TextView;
@@ -20,6 +21,7 @@ public class RecipeActivity extends AppCompatActivity {
     ListView instructionListView;
     ListView notesView;
     ListView commentsView;
+    Button favButton;
     String[] recipes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +59,17 @@ public class RecipeActivity extends AppCompatActivity {
         commentsView = (ListView) findViewById(R.id.comments_list);
         CommentsAdapter commentsAdapter = new CommentsAdapter(index);
         commentsView.setAdapter(commentsAdapter);
+
+        favButton = (Button) findViewById(R.id.fav_button);
+        favButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //code to add recipe if to database
+                Intent showRecipeFavorites = new Intent(getApplicationContext(), Favorites_activity.class);
+                showRecipeFavorites.putExtra("recipe name",rn);
+                startActivity(showRecipeFavorites);
+            }
+        });
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.floatingActionButton3);
         fab.setOnClickListener(new View.OnClickListener() {
