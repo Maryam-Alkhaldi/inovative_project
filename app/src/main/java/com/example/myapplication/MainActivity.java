@@ -3,6 +3,7 @@ package com.example.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,8 +13,18 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
+
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     GridView gridView;
@@ -46,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(new Intent(MainActivity.this, UploadActivity.class));
             }
         });
+        //loadRecipes();
     }
 
     private class CustomAdapter extends BaseAdapter {
@@ -85,6 +97,8 @@ public class MainActivity extends AppCompatActivity {
      *
     public void loadRecipes()
     {
+        ArrayList<Recipe> recipeList = new ArrayList<>();
+        Recipe tmpRecipeReference;
         AssetManager assets = getAssets();
 
         InputStream iStream;
@@ -99,44 +113,133 @@ public class MainActivity extends AppCompatActivity {
                 xmlParser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
                 xmlParser.setInput(iStream, null);
 
-                int recipeNum = 0;
+                int recipeNum = 0; // Only used for testing.
                 int event = 0;
 
+                String recipeName = "", recipeDescription = "", recipeCategory = "", imagePath = "";
                 while (event != XmlPullParser.END_DOCUMENT)
                 {
-                    String name = xmlParser.getName();
-                    System.out.println(">>>" + name); // First returned value is null.
 
-//                    if(name.equals("Recipe")) // Throws an Exception???
-//                    {
-//                        recipeNum++;
-//                    }
+                    Ingredient recipeIngredients[] = new Ingredient[20]; // 20 is arbitrarily chosen for size.
+                    double recipePrice;
 
-                    System.out.println(">>>" + recipeNum);
-                    event = xmlParser.next();
-                }
+                    String tagName;
+                    int depth;
+
+                    if (event != XmlPullParser.START_TAG) // Skip any null's
+                    {
+                        event = xmlParser.next();
+                    }
+                    else
+                    {
+                        tagName = xmlParser.getName();
+                        depth = xmlParser.getDepth();
+
+                        event = xmlParser.next(); // Skip over the Recipe tag denoting a new Recipe
+
+                        // BEGINNING of a recipe. All recipes start with a <Recipe> tag at a
+                        // depth of 1 following immediately to the start of a recipe
+                        while(depth >= 2)
+                        {
+
+                            if (event != XmlPullParser.START_TAG) // Skip any null's
+                            {
+                                event = xmlParser.next();
+                            }
+                            else
+                            {
+                                tagName = xmlParser.getName();
+                                event = xmlParser.next();
+
+                                if(tagName.equals("Name")) // Get recipe name
+                                {
+                                    recipeName = xmlParser.getText();
+                                }
+                                if(tagName.equals("Description")) // Get recipe Description
+                                {
+                                    recipeDescription = xmlParser.getText();
+                                }
+                                else if(tagName.equals("Category")) // Get recipe Category
+                                {
+                                    recipeCategory = xmlParser.getText();
+                                }
+                                else if(tagName.equals("Ingredients"))
+                                {
+                                    getEmbeddedAttributes(xmlParser, true);
+                                }
+                                //Get all steps  for cooking the recipe
+                                else if(tagName.equals("Method"))
+                                        {
+                                        getEmbeddedAttributes(xmlParser, false);
+                                        }
+
+                                        System.out.println(">>>Name: " + recipeName + "\t>>>Description: " +
+                                        recipeDescription + "\t>>>Category: " + recipeCategory);
+                                        }
+                                        depth = xmlParser.getDepth();
+                                        }
+                                        }
+
+                                        }
 
 
-            }
-            catch(XmlPullParserException exception)
-            {
-                System.err.println(">>>Error XmlPullParser");
-            }
+                                        }
+                                        catch(XmlPullParserException exception)
+                                        {
+                                        System.err.println(">>>Error XmlPullParser");
+                                        }
 
 
-        }
-        catch(FileNotFoundException e)
+                                        }
+                                        catch(FileNotFoundException e)
+                                        {
+                                        System.err.println(">>>FileNotFoundException Has Occured.");
+                                        }
+                                        catch(IOException e)
+                                        {
+                                        System.err.println(">>>IOException Has Occured");
+                                        }
+                                        catch (Exception e)
+                                        {
+                                        System.err.println(">>>" + e.getCause());
+                                        System.err.println(">>>ERROR Reading File.");
+                                        }
+                                        }
+
+private void getEmbeddedAttributes(XmlPullParser xmlParser, boolean ingredients) throws Exception
         {
-            System.err.println(">>>FileNotFoundException Has Occured.");
-        }
-        catch(IOException e)
+        ArrayList<String> attributes = new ArrayList<>();
+        String tagName = "";
+        int event = xmlParser.next(); // Advance to the first attribute.
+        int depth = xmlParser.getDepth();
+
+        while(depth >= 3) // Get all nested attributes.
         {
-            System.err.println(">>>IOException Has Occured");
-        }
-        catch (Exception e)
+
+
+        if(event != XmlPullParser.START_TAG)
         {
-            System.err.println(">>>" + e.getCause());
-            System.err.println(">>>ERROR Reading File.");
+        event = xmlParser.next();
         }
-    }
-}*/
+        else
+        {
+        tagName = xmlParser.getName();
+        event = xmlParser.next();
+        if(ingredients == true) // Read ingredients list
+        {
+        String ingredientName = xmlParser.getText();
+        String quantity = xmlParser.getAttributeValue(0); // Throws an exception???
+        System.out.println(">>>Ingredient: " + ingredientName);
+
+        }
+        else // Read method
+        {
+
+        }
+
+        }
+
+        depth = xmlParser.getDepth();
+        }
+        }
+        }*/
