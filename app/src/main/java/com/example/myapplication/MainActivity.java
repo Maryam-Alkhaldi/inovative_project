@@ -12,13 +12,10 @@ import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
-
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
@@ -27,6 +24,44 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    /*
+    * Hard Coded recipe list to get around XML parser difficulties.
+    * recipe indexes:
+    * 0 = Beef and Veggie Stew (recipe id:1)
+    * 1 = Vegetarian Lasagne (recipe id:2)
+    * 2 = Pancakes (recipe id:3)
+    * 3 = Mushrooms (recipe id:4)
+    * 4 = Cheesecake (recipe id:5)
+    * 5 = Banana Milkshake (recipe id:6)
+    *
+    * Each recipe has the following variables:
+    * String name;
+    * String description;
+    * String category;
+    * String ingredients[];
+    * String method[];
+    * Integer price;
+    * Integer id;
+    *
+    * Each variable has assessor methods for them
+    *
+    */
+    ArrayList<Recipe> recipeList = Recipe.loadRecipesWorkaround();
+
+
+
+    /*
+    * Example of how to obtain information. It should work...(I was unable to find a way to test it)
+    String name = recipeList.get(4).getName();
+    Integer id = recipeList.get(3).getId();
+    String description = recipeList.get(2).getDescription();
+    String category = recipeList.get(5).getCategory();
+    Integer price = recipeList.get(1).getPrice();
+    String[] ingredients = recipeList.get(0).getIngredients();
+    String[] method = recipeList.get(4).getMethod();
+    */
+
     GridView gridView;
     String[] categories = {"Trending", "Breakfast", "Lunch", "Dinner", "Dessert", "Snack"};
     int[] categoryImages = {R.drawable.trending, R.drawable.breakfast, R.drawable.lunch,
@@ -37,7 +72,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         gridView = findViewById(R.id.gridview);
-
         CustomAdapter customAdapter = new CustomAdapter();
         gridView.setAdapter(customAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
